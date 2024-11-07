@@ -10,11 +10,13 @@ steps:
     versionSource: 'spec'
     versionSpec: '22.9.0'
   displayName: 'Install Node.js'
-- task: Npm@1
-  inputs:
-    customCommand: 'npm install && npm run build'
-    workingDir: '$(Build.ArtifactStagingDirectory)/src/ReactApp1/reactapp1.client/'
+
+-script: |
+    cd src/ReactApp1/reactapp1.client
+    npm install
+    npm run build
   displayName: 'npm install build'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/src/ReactApp1/reactapp1client/dist'
