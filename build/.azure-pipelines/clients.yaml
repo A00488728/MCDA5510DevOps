@@ -13,9 +13,14 @@ steps:
 
 - task: Npm@1
   inputs:
-    customCommand: 'npm install && npm run build'
+    command: 'install'
     workingDir: '$(Build.SourcesDirectory)/src/ReactApp1/reactapp1.client/'
   displayName: 'npm install build'
+
+- task: Npm@1
+  inputs:
+    customCommand: 'npm run build'
+    workingDir: '$(Build.SourcesDirectory)/src/ReactApp1/reactapp1.client/'
 
 #- script: |
 #    cd src/ReactApp1/reactapp1.client
