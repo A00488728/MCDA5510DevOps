@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\build",
+    "\\build\\.azure-pipelines",
+    "\\src",
+    "\\src\\ReactApp1",
+    "\\src\\ReactApp1\\reactapp1.client"
+  ],
+  "PreviewInSolutionExplorer": false
+}
