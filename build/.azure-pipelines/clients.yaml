@@ -1,0 +1,37 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+steps: 
+
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '22.9.0'
+  displayName: 'Install Node.js'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: '$(Build.SourcesDirectory)/src/ReactApp1/reactapp1.client/'
+  displayName: 'npm install build'
+
+- task: Npm@1
+  inputs:
+    customCommand: 'npm run build'
+    workingDir: '$(Build.SourcesDirectory)/src/ReactApp1/reactapp1.client/'
+
+#- script: |
+#    cd src/ReactApp1/reactapp1.client
+#    npm install
+#    npm run build
+#  displayName: 'npm install build'
+
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/src/ReactApp1/reactapp1.client/dist'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
