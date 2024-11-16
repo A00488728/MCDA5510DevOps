@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
   
 variables:
-  solution: 'src/ReactApp1/ReactApp1.Server/*.sln'
+  solution: 'src/ReactApp1/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
     
