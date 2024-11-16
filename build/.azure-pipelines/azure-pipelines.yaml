@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  - main
+  - master
     
 pool:
   vmImage: 'ubuntu-latest'
@@ -23,7 +23,7 @@ steps:
   displayName: 'Build Project'
   inputs:
     command: 'build'
-    projects: 'src/ReacApp1/ReactApp1.Server/ReactApp1.Server.csproj'
+    projects: 'src/ReacApp1/ReactApp1.Server/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
   
 - task: DotNetCoreCLI@2
